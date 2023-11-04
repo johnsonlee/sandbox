@@ -1,0 +1,26 @@
+[versions]
+aapt2 = "8.1.1-10154469"
+android-tools = "31.1.2"
+androidx-lifecycle = "2.6.2"
+jackson = "2.13.4"
+kxml2 = "2.3.0"
+layoutlib = "2022.3.1-5e972ea"
+slf4j = "1.7.36"
+okio = "3.4.0"
+protobuf = "3.19.3"
+
+
+[libraries]
+android-tools-build-aapt2-proto = { module = "com.android.tools.build:aapt2-proto", version.ref = "aapt2" }
+android-tools-common = { module = "com.android.tools:common", version.ref = "android-tools" }
+android-tools-external-intellij-core = { module = "com.android.tools.external.com-intellij:intellij-core", version.ref = "android-tools" }
+android-tools-layoutlib-api = { module = "com.android.tools.layoutlib:layoutlib-api", version.ref = "android-tools" }
+android-tools-ninepatch = { module = "com.android.tools:ninepatch", version.ref = "android-tools" }
+android-tools-sdk-common = { module = "com.android.tools:sdk-common", version.ref = "android-tools" }
+androidx-lifecycle-common-java8 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "androidx-lifecycle" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+kxml2 = { module = "net.sf.kxml:kxml2", version.ref = "kxml2" }
+layoutlib-native-jdk11 = { module = "io.johnsonlee:layoutlib-native-jdk11", version.ref = "layoutlib" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+okio = { module = "com.squareup.okio:okio-jvm", version.ref = "okio" }
+protobuf = { module = "com.google.protobuf:protobuf-java", version.ref = "protobuf" }
