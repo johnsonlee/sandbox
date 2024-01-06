@@ -33,7 +33,7 @@ class Sandbox(private val environment: Environment) : Closeable {
         theme: String = DEFAULT_THEME,
         showLayoutBounds: Boolean = true,
         inflate: ((BridgeContext, ViewGroup) -> Unit)? = null
-    ): Result {
+    ): kotlin.Result<RenderData> {
         val sessionParams = SessionParamsBuilder.from(environment)
             .copy(deviceModel = deviceModel)
             .withTheme(theme)
@@ -65,14 +65,13 @@ class Sandbox(private val environment: Environment) : Closeable {
                 renderSession.render(true).check()
             }
 
-            val data = RenderData(
+            kotlin.Result.success(RenderData(
                 systemViews = bridgeRenderSession.systemRootViews.toList(),
                 rootViews = bridgeRenderSession.rootViews.toList(),
                 image = bridgeRenderSession.image,
-            )
-            bridgeRenderSession.result.getCopyWithData(data)
+            ))
         } catch (e: Throwable) {
-            bridgeRenderSession.result.takeIf { it.isSuccess } ?: Result.Status.ERROR_RENDER.createResult(e.message, e)
+            kotlin.Result.failure(e)
         } finally {
             root.removeAllViews()
             AnimationHandler.sAnimatorHandler.set(null)
