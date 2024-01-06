@@ -66,6 +66,8 @@ internal class LayoutlibCallbackImpl(
 
     override fun getApplicationId(): String = appId
 
+    override fun getResourcePackage(): String = appId
+
     override fun loadView(
         name: String,
         constructorSignature: Array<out Class<*>>,

@@ -2,7 +2,7 @@ package io.johnsonlee.playground.sandbox.parsers
 
 open class AttributeSnapshot(
     open val namespace: String,
-    open val prefix: String,
+    open val prefix: String?,
     open val name: String,
     open val value: String
 ) {

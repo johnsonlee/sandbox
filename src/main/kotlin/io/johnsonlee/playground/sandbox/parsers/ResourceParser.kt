@@ -85,11 +85,11 @@ class ResourceParser(input: InputStream) : KXmlParser() {
     }
 
     private fun findPrefixByQualifiedName(qualifiedName: String): String {
-        return qualifiedName.substringBefore(':').takeIf(String::isNotEmpty) ?: ""
+        return qualifiedName.substringBefore(':', "")
     }
 
     private fun findLocalNameByQualifiedName(qualifiedName: String): String {
-        return qualifiedName.substringAfterLast(':')
+        return qualifiedName.substringAfter(':')
     }
 
     private fun createAttributesForTag(): MutableList<AttributeSnapshot> {

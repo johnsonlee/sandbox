@@ -52,14 +52,13 @@ data class SessionParamsBuilder(
         require(themeName != null)
 
         val folderConfiguration = deviceModel.resourceConfiguration
+        val platformResources = listOf(ResourceNamespace.ANDROID).associateWith {
+            frameworkResources.getConfiguredResources(folderConfiguration).row(it)
+        }
+        val applicationResources = projectResources.getConfiguredResources(folderConfiguration).rowMap()
         val resourceResolver = ResourceResolver.create(
-            mapOf(
-                ResourceNamespace.ANDROID to frameworkResources.getConfiguredResources(folderConfiguration)
-                    .row(ResourceNamespace.ANDROID),
-                *projectResources.getConfiguredResources(folderConfiguration).rowMap()
-                    .map { (key, value) -> key to value }.toTypedArray()
-            ),
-            ResourceReference(ResourceNamespace.ANDROID, ResourceType.STYLE, themeName),
+            platformResources + applicationResources,
+            ResourceReference(ResourceNamespace.RES_AUTO, ResourceType.STYLE, themeName),
         )
         val sessionParams = SessionParams(
             layoutPullParser,
