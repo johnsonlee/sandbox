@@ -5,7 +5,7 @@ import org.xmlpull.v1.XmlPullParserException
 
 abstract class InMemoryParser : KXmlParser() {
 
-    abstract fun rootTag(): TagSnapshot
+    abstract fun rootTag(): TagSnapshot?
 
     private val nodeStack = mutableListOf<TagSnapshot>()
     private var parsingState = START_DOCUMENT
