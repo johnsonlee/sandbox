@@ -109,7 +109,7 @@ class Sandbox(private val environment: Environment) : Closeable {
             mCallbacksRunning.setBoolean(choreographer, true)
 
             synchronized(sessionInteractiveData) {
-                Handler_Delegate.executeCallbacks()
+                Handler_Delegate.executeCallbacks(frameNanos)
             }
 
             val currentTimeMs = SystemClock_Delegate.uptimeMillis()
