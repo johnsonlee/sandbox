@@ -70,7 +70,7 @@ enum class DeviceModel(
         screenWidth = 1080,
         xdpi = 442,
         ydpi = 444,
-        density = Density.DPI_440,
+        density = Density.create(440),
         ratio = ScreenRatio.LONG,
         released = "October 15, 2020"
     )

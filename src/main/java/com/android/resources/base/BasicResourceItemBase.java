@@ -129,7 +129,6 @@ public abstract class BasicResourceItemBase implements BasicResourceItem {
     return asReference();
   }
 
-  @Override
   public void setValue(String value) {
     throw new UnsupportedOperationException();
   }

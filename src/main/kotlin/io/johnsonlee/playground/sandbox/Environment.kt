@@ -67,7 +67,11 @@ data class Environment(
         val platformDataDir = platformDataRoot.resolve("data")
         val fontLocation = platformDataDir.resolve("fonts")
         val nativeLibLocation = platformDataDir.resolve(Environment.nativeLibDir)
-        val icuLocation = platformDataDir.resolve("icu").resolve("icudt70l.dat")
+        val icuDir = platformDataDir.resolve("icu")
+        val icuLocation = icuDir.listFiles { f -> f.name.startsWith("icudt") && f.name.endsWith(".dat") }
+            ?.firstOrNull()
+            ?: icuDir.resolve("icudt76l.dat")
+        val hyphenDataLocation = platformDataDir.resolve("hyphen-data")
         val keyboardLocation = platformDataDir.resolve("keyboards").resolve("Generic.kcm")
         val buildProp = platformDir.resolve("build.prop")
         val attrs = platformDataResDir.resolve("values").resolve("attrs.xml")
@@ -80,6 +84,7 @@ data class Environment(
                     fontLocation,
                     nativeLibLocation.path,
                     icuLocation.path,
+                    hyphenDataLocation.path,
                     arrayOf(keyboardLocation.path),
                     DeviceModel.getEnumMap(attrs),
                     LayoutLogger
