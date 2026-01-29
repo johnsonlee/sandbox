@@ -1,10 +1,11 @@
 [versions]
 aapt2 = "8.1.1-10154469"
-android-tools = "31.1.2"
+android-tools = "31.7.0"
 androidx-lifecycle = "2.6.2"
 jackson = "2.13.4"
 kxml2 = "2.3.0"
-layoutlib = "15.0.3"
+layoutlib = "16.1.0-jdk17"
+layoutlib-api = "31.13.2"
 slf4j = "1.7.36"
 okio = "3.4.0"
 protobuf = "3.19.3"
@@ -14,7 +15,7 @@ protobuf = "3.19.3"
 android-tools-build-aapt2-proto = { module = "com.android.tools.build:aapt2-proto", version.ref = "aapt2" }
 android-tools-common = { module = "com.android.tools:common", version.ref = "android-tools" }
 android-tools-external-intellij-core = { module = "com.android.tools.external.com-intellij:intellij-core", version.ref = "android-tools" }
-android-tools-layoutlib-api = { module = "com.android.tools.layoutlib:layoutlib-api", version.ref = "android-tools" }
+android-tools-layoutlib-api = { module = "com.android.tools.layoutlib:layoutlib-api", version.ref = "layoutlib-api" }
 android-tools-layoutlib = { module = "com.android.tools.layoutlib:layoutlib", version.ref = "layoutlib" }
 android-tools-layoutlib-resources = { module = "com.android.tools.layoutlib:layoutlib-resources", version.ref = "layoutlib" }
 android-tools-layoutlib-runtime = { module = "com.android.tools.layoutlib:layoutlib-runtime", version.ref = "layoutlib" }
